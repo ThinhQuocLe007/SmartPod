@@ -16,7 +16,7 @@ SmartPod is an IoT-based system that lets you monitor and control your plants us
 
 Shows plant status, sensor readings, control buttons, and real-time charts.
 
-![Main UI](screenshots/main_ui.jpg)
+![Main UI](images/pod.jpg)
 
 ---
 
@@ -24,7 +24,7 @@ Shows plant status, sensor readings, control buttons, and real-time charts.
 
 Shows second-by-second humidity changes.
 
-![History](screenshots/history.jpg)
+![History](images/history.jpg)
 
 ---
 
@@ -32,7 +32,7 @@ Shows second-by-second humidity changes.
 
 Set custom watering and lighting schedules.
 
-![Schedule](screenshots/schedule.jpg)
+![Schedule](images/schedule.jpg)
 
 ---
 
@@ -40,7 +40,7 @@ Set custom watering and lighting schedules.
 
 Manage and view all plant pods.
 
-![Pods](screenshots/pods.jpg)
+![Pods](images/gallery.jpg)
 
 ---
 
