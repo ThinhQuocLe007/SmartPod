@@ -6,7 +6,7 @@ SmartPod is an IoT-based system that lets you monitor and control your plants us
 
 ## 🖼️ System Overview
 
-![System Diagram](docs/system_diagram.png)
+![System Diagram](images/diagram.png)
 
 ---
 
