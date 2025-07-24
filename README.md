@@ -1,6 +1,6 @@
 # 🌿 SmartPod – IoT Smart Plant System
 
-SmartPod is an IoT-based plant monitoring system using ESP32, MQTT, and a web interface. It allows real-time monitoring and control of multiple plant pods (temperature, humidity, light, pump), with chart visualization written in **Java**.
+SmartPod is an IoT-based system that lets you monitor and control your plants using ESP32, MQTT, and a custom dashboard. It supports real-time temperature and humidity tracking, manual/automatic control of pumps and lights, and scheduling via a user interface.
 
 ---
 
@@ -10,29 +10,46 @@ SmartPod is an IoT-based plant monitoring system using ESP32, MQTT, and a web in
 
 ---
 
-## 🌐 Web Dashboard
+## 🌐 Web Interface
 
-| Pod Gallery | Main UI | History View | Scheduler |
-|-------------|---------|---------------|------------|
-| ![Pods](screenshots/pods.jpg) | ![Main](screenshots/main_ui.jpg) | ![History](screenshots/history.jpg) | ![Schedule](screenshots/schedule.jpg) |
+### 🌱 Main Dashboard
 
----
+Shows plant status, sensor readings, control buttons, and real-time charts.
 
-## ⚙️ Features
-
-- 🌡️ Monitor temperature & humidity (ESP32 + MQTT)
-- 💡 Control lights and pump (manual or auto)
-- 📊 Schedule watering and lighting by time/date
-- 📈 Live humidity/temperature chart via **Java**
+![Main UI](screenshots/main_ui.jpg)
 
 ---
 
-## 🔧 Tech Stack
+### 📈 Humidity History Popup
+
+Shows second-by-second humidity changes.
+
+![History](screenshots/history.jpg)
+
+---
+
+### 🗓️ Schedule Setup
+
+Set custom watering and lighting schedules.
+
+![Schedule](screenshots/schedule.jpg)
+
+---
+
+### 🪴 Pod Gallery
+
+Manage and view all plant pods.
+
+![Pods](screenshots/pods.jpg)
+
+---
+
+## ⚙️ Built With
 
 - ESP32 + Sensors + Actuators
 - MQTT (Mosquitto)
-- HTML/CSS Frontend
-- Java (Chart logic)
+- HTML/CSS/JavaScript
+- Java (for chart rendering)
 
 ---
 
