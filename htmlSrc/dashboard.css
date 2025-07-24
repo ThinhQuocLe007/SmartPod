@@ -1,0 +1,847 @@
+/* Background image and blur effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('Icon_Images/background.jpeg') center/cover no-repeat;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+/* Main body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Top panel styling */
+.top-panel {
+    width: 100%;
+    background-color: #f3f4f6;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.top-panel-left,
+.top-panel-right {
+    display: flex;
+    align-items: center;
+}
+
+.top-panel-iot-title {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+}
+
+.top-panel-left {
+    padding-left: 250px;
+}
+
+.top-panel-right {
+    padding-right: 240px;
+}
+
+.top-panel-right a,
+.top-panel-left a {
+    margin-right: 15px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.top-panel-right a {
+    padding-right: 20px;
+    font-size: 20px;
+}
+
+.top-panel-left a:hover {
+    color: #007bff;
+}
+
+/* Container styling for dashboard */
+.container {
+    max-width: 1800px;
+    margin-top: 60px; /* Add space for top panel */
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+/* Flex layout for the main dashboard */
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+/* Left and Right Side Styling */
+.dashboard-left, .dashboard-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    padding: 20px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6); /* Subtle gradient */
+    backdrop-filter: blur(10px); /* Blur effect */
+    border-radius: 12px; /* Rounded corners */
+    overflow: hidden;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15), -10px -10px 20px rgba(255, 255, 255, 0.3); /* Fancy shadow */
+    margin: 0;
+    text-align: center;
+}
+
+/* Plant image and Control Card */
+.potImg-Control {
+    display: flex;
+    flex: none;
+    width: 300px;
+    gap: 10px;
+}
+
+.humidity-card,
+.temperature-card {
+    padding: 20px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6); /* Blueish gradient */
+    border-radius: 12px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px rgba(255, 255, 255, 0.3);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.humid-content .temperature-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    font-size: 18px;
+}
+
+.humid-content .value,
+.temperature-content .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff; /* Blue text for values */
+}
+
+.humid-content .info
+.temperature-content .info {
+    font-size: 14px;
+    color: #555; /* Light gray for additional info */
+}
+
+.previous-value {
+    font-size: 14px; /* Smaller text for the previous value */
+    color: #555; /* Light gray color */
+    margin-top: 5px; /* Add space above the text */
+    display: block; /* Ensure it appears on a new line */
+}
+
+.pot-image, .Control-Card{
+    flex: 1;
+}
+
+.plant-card h3,
+.Control-Card h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0;
+    font-size: 20px; /* Adjust font size if necessary */
+}
+
+.plant-card {
+    padding: 10px 10px;
+    margin: 0;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6); /* Unified background */
+    backdrop-filter: blur(10px); /* Unified blur effect */
+    border-radius: 12px; /* Unified rounded corners */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15), -10px -10px 20px rgba(255, 255, 255, 0.3); /* Unified shadow */
+    text-align: center;
+}
+
+.pot-image {
+    width: 250px;
+    height: 230px; /* Set a fixed height */
+    object-fit: cover; /* Scales the image to fill the container without distortion */
+    border-radius: 10px;
+
+}
+
+.Control-Card {
+    width: 180px; /* Increased width for better layout */
+    padding: 20px; /* Increased padding for consistent spacing */
+    background: #ffffff;
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Increased spacing between buttons */
+}
+
+.controlMode-row, .LightPump-row {
+    display: flex;
+    gap: 15px; /* Adjust spacing between controls */
+    width: 100%;
+    justify-content: center; /* Center align the controls */
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px; /* Increased button width */
+    padding: 16px; /* Increased padding for larger appearance */
+    border: 1px solid #555; /* Border for unchecked state */
+    border-radius: 8px;
+    color: #555; /* Gray out text and icon */
+    transition: all 0.3s;
+    background-color: #f9f9f9; /* Added background color for buttons */
+}
+
+.control-group.checked {
+    background-color: #3f4a63;
+    border: 1px solid #4CAF50;
+    color: #FFF; /* Brighten text and icon */
+}
+
+.control-group i {
+    font-size: 36px; /* Increased icon size */
+    margin-bottom: 8px;
+}
+
+.control-group label {
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+.control-group.checked label,
+.control-group.checked i {
+    color: #FFF !important; /* Force text and icon to turn white */
+}
+
+.control-group.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #bbb;
+    transition: 0.4s;
+    border-radius: 24px;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2), inset -5px -5px 10px rgba(255, 255, 255, 0.3);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3), inset -5px -5px 10px rgba(255, 255, 255, 0.4);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+
+
+/* Label styling */
+.control-group label {
+    font-weight: bold;
+    color: #333;
+    font-size: 15px;
+
+}
+/* Chart card styling */
+.chart-card {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.966); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1050px;
+}
+
+/* Center align h3 within chart-card */
+.chart-card h3 {
+    text-align: center;
+    margin: 0;
+}
+
+/* Left align h4 within chart-card */
+.chart-card h4 {
+    text-align: left;
+    margin: 0;
+}
+
+.chart-card canvas {
+    max-width: 1050px; /* Prevents infinite expansion */
+    max-height: 1000px;
+}
+
+/* Humid group */
+
+.humidity-group {
+    display: flex;
+    gap: 20px; /* Space between the chart and the card */
+    align-items: center;
+}
+
+.humidity-group .chart-card {
+    flex: 2; /* Larger flex value to give more space to the chart */
+}
+
+.humidity-group .humidity-summary-card {
+    flex: 1; /* Smaller flex value for the summary card */
+}
+
+.humidity-summary-card {
+    padding: 5px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 250px;
+    height: 300px;
+}
+
+.humidity-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.humidity-info {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.humidity-list {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 250px; /* Limit the height to keep the layout clean */
+}
+
+.humidity-list-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.humidity-time {
+    width: 30%; /* Adjust as needed */
+}
+
+.humidity-value {
+    width: 30%; /* Adjust as needed */
+    text-align: center;
+}
+
+.humidity-change {
+    width: 30%; /* Adjust as needed */
+    text-align: right;
+    font-weight: bold;
+}
+
+/* Temperature Group */
+.temperature-summary-card {
+    padding: 5px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 250px;
+    height: 300px;
+}
+
+.temperature-list {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 250px;
+}
+
+.temperature-list-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.temperature-time {
+    width: 30%;
+}
+
+.temperature-value {
+    width: 30%;
+    text-align: center;
+}
+
+.temperature-change {
+    width: 30%;
+    text-align: right;
+    font-weight: bold;
+}
+
+
+/* Switch styling */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 20px;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+input:checked + .slider { background-color: #4CAF50; }
+input:checked + .slider:before { transform: translateX(20px); }
+
+/* Add schedule pop ups */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 20%;
+    max-height: 90%;
+    overflow-y: auto;
+}
+
+.close-btn {
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#addTimePeriod {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#addTimePeriod:hover {
+    background-color: #0056b3;
+}
+
+/* Schedule today list */
+.schedule-list-card {
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.schedule-list-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.schedule-list-card li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-list-card .light-on {
+    background-color: #ffeb3b; /* Yellow for light on */
+}
+
+.schedule-list-card .pump-on {
+    background-color: #64b5f6; /* Blue for pump on */
+}
+
+.schedule-list-card .both-on {
+    background-color: #4caf50; /* Green for both on */
+}
+
+.schedule-list-card .off {
+    background-color: #e0e0e0; /* Gray for both off */
+}
+
+/* Adjusting the color legend description to fit two columns */
+.color-description {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 12px; /* Smaller font size */
+}
+
+.color-legend {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid; /* Grid layout for two columns */
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    gap: 5px; /* Spacing between items */
+}
+
+.color-legend li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-align: left; /* Ensure the text is aligned to the left */
+    justify-content: start; /* Align items to the left */
+}
+
+.color-box {
+    width: 12px; /* Adjust size of the color boxes */
+    height: 12px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+/* Specific colors for the boxes */
+.color-box.green {
+    background-color: #4caf50; /* Green */
+}
+
+.color-box.yellow {
+    background-color: #ffeb3b; /* Yellow */
+}
+
+.color-box.blue {
+    background-color: #64b5f6; /* Blue */
+}
+
+.color-box.gray {
+    background-color: #e0e0e0; /* Gray */
+}
+
+/* Calendar */
+.calendar-summary-card {
+    padding: 10px; /* Reduce padding */
+    background: #ffffff;
+    border-radius: 8px; /* Slightly smaller corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    text-align: center;
+    max-width: 400px; /* Reduce maximum width */
+    font-size: 13px; /* Smaller text */
+}
+
+
+/* Adjust the calendar grid */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Keep same structure */
+    gap: 3px; /* Reduce spacing between cells */
+    text-align: center;
+}
+
+/* Styling for the calendar cells */
+.calendar-cell {
+    padding: 5px; /* Reduce cell padding */
+    border-radius: 3px; /* Smaller corner radius */
+    background-color: #f3f3f3;
+    font-size: 14px; /* Smaller text in cells */
+}
+
+/* Highlighted cell for scheduled dates */
+.calendar-cell.highlighted {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    font-size: 14px; /* Slightly larger for emphasis */
+}
+
+/* Navigation buttons */
+.calendar-nav button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 7px; /* Smaller buttons */
+    font-size: 10px; /* Smaller text */
+    cursor: pointer;
+}
+/* Style for the Set Schedule button */
+.schedule-controls {
+    display: flex;
+    justify-content: start; /* Aligns buttons to the start */
+    align-items: center;
+    gap: 10px; /* Adds space between buttons */
+    margin-bottom: 10px; /* Adds space below the button group */
+}
+
+.schedule-button {
+    margin: 10px auto; /* Center horizontally and add top spacing */
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Spacing between icon and text */
+    text-align: center;
+}
+
+.schedule-button i {
+    font-size: 16px; /* Adjust icon size */
+}
+
+.schedule-button:hover {
+    background-color: #0056b3;
+}
+
+/* Adjust navigation spacing */
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* Space below navigation */
+    gap: 5px; /* Space between buttons and text */
+}
+
+.calendar-nav button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 7px; /* Button padding */
+    font-size: 10px; /* Font size */
+    cursor: pointer;
+}
+
+.calendar-nav button:hover {
+    background-color: #45a049;
+}
+
+.calendar-nav #currentMonth {
+    font-size: 18px;
+    color: #333;
+    margin: 0 5px; /* Add small spacing between buttons and text */
+}
+
+
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.calendar-header {
+    font-weight: bold;
+    background-color: #f3f3f3;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.calendar-cell {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f3f3f3;
+}
+
+.calendar-cell.empty {
+    background-color: transparent;
+    pointer-events: none;
+}
+
+.calendar-cell.current-date {
+    border: 2px solid #007bff; /* Blue border */
+    background-color: transparent; /* No background color */
+    color: #000; /* Default text color */
+    font-weight: bold;
+}
+
+.calendar-cell.highlighted {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    font-weight: bold;
+}
+
+.delete-button {
+    margin: 10px auto; /* Center horizontally and add top spacing */
+    padding: 10px 15px;
+    background-color: #d9534f; /* Red color */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Spacing between icon and text */
+    text-align: center;
+}
+
+.delete-button i {
+    font-size: 16px; /* Adjust icon size */
+}
+
+.delete-button:hover {
+    background-color: #c9302c;
+}
+
+#scheduledDatesList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.scheduled-date-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.scheduled-date-item button {
+    padding: 5px 10px;
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.scheduled-date-item button:hover {
+    background-color: #c9302c;
+}

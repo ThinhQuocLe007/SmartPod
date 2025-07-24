@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Pot Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Top Panel Styling */
+        .top-panel {
+            width: 100%;
+            background-color: #f3f4f6;
+            padding: 10px 10px; /* Increase padding for a larger panel */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            position: fixed;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-panel-left,
+        .top-panel-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-panel-iot-title {
+            font-size: 24px; /* Larger font size for "IoT Smart Pot" */
+            color: #333;
+            font-weight: bold;
+            margin: 0;
+        }
+
+
+
+        .top-panel-left{
+            padding-left: 250px;
+        }
+        .top-panel-right{
+            padding-right: 240px;
+        }
+
+        .top-panel-left a {
+            margin-right: 15px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .top-panel-right a {
+            padding-right: 20px;
+            margin-right: 15px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .top-panel-left a:hover {
+            color: #007bff;
+        }
+
+        .vine-border {
+            height: 40px; /* Adjust height as needed */
+            margin-right: 10px; /* Space between vine and title */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            background-color: #e0e0e0;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            background-color: #e0e0e0; /* Light gray background */
+        }
+        .image-section {
+            width: 65%;
+            height: 100%;
+            background: url('background.webp') no-repeat center center/cover;
+            clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%);
+        }
+        .quote-section {
+            width: 35%;
+            height: 100%;
+            background-color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+            text-align: center;
+            position: relative;
+        }
+        .quote-section h1 {
+            font-size: 3.5em; /* Increased font size for title */
+            color: #4CAF50;
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .quote-section p {
+            font-size: 1.2em;
+            color: #555;
+            max-width: 500px;
+            line-height: 1.8;
+            font-weight: 400;
+            margin: 0 auto 20px;
+        }
+        .contact-info {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 1em;
+            color: #4CAF50;
+        }
+        .contact-info a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="top-panel">
+    <div class="top-panel-left">
+        <h1 class="top-panel-iot-title">IoT Smart Pot</h1>
+    </div>
+    <div class="top-panel-right">
+        <a href="view_pot_tree.php">Gallery</a>
+        <a href="introduce.html">About this work</a>
+        <a href="About.html">Creator</a>
+    </div>
+</div>
+<div class="container">
+    <div class="image-section">
+        <!-- Image is set as a background -->
+    </div>
+    <div class="quote-section">
+        <h1>SMART POT PROJECT</h1>
+        <p>"Bring nature indoors with Smart Pot, designed to care for your plants effortlessly. Perfect for creating a green, healthy home environment."</p>
+        <div class="contact-info">
+            <p>Contact us: <a href="mailto:robotAI@gmail.com">robotAI@gmail.com</a></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

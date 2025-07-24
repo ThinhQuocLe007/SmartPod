@@ -1,0 +1,52 @@
+# Create sensor_data table 
+CREATE TABLE sensor_data (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    POT_ID INT NOT NULL,
+    HUMIDITY FLOAT NOT NULL,
+    TEMPERATURE FLOAT NOT NULL,
+    TIMESTAMP DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+# END 
+
+# Create pot_trees table 
+CREATE TABLE pot_trees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    POT_ID INT NOT NULL,
+    name VARCHAR(30) NOT NULL,
+    humd_thres FLOAT NOT NULL,
+    temp_thres FLOAT NOT NULL,
+    pump TINYINT(1) NOT NULL,
+    auto TINYINT(1) NOT NULL,
+    light TINYINT(1) NOT NULL,
+    image_path VARCHAR(255),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+# END 
+
+
+def parse_message(message):
+    """Parse the incoming MQTT message."""
+    try:
+        devID, infor = message.split('&')
+        dev_id = devID.split(': ')[1]  # Extract DEV_ID
+        parts = infor.split('?')
+
+        sensor_data = {}
+        pot_config = {}
+
+        for part in parts:
+            if "TABLE: sensor_data" in part:
+                sensor_values = part.split('|')
+                for item in sensor_values[1:]:
+                    key, value = item.split(': ')
+                    sensor_data[key] = float(value)
+            elif "TABLE: pot_trees" in part:
+                config_values = part.split('|')
+                for item in config_values[1:]:
+                    key, value = item.split(': ')
+                    pot_config[key] = int(value)
+
+        return dev_id, sensor_data, pot_config
+    except Exception as e:
+        print(f"Error parsing message: {e}")
+        return None, {}, {}
